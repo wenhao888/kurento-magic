@@ -147,9 +147,9 @@ wss.on('connection', function(ws) {
  */
 
 // Recover kurentoClient for the first time.
-async function getKurentoClient() {
+async function getKurentoClient(callback) {
     if (kurentoClient !== null) {
-        return callback(null, kurentoClient);
+        return kurentoClient;
     }
 
     kurentoClient = await kurento(argv.ws_uri);
